@@ -1,8 +1,10 @@
 package variable;
 
 import java.io.Serializable;
+import java.security.KeyStore.Entry;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Product_menu_list implements Serializable {
@@ -17,6 +19,39 @@ public class Product_menu_list implements Serializable {
 	public Product_menu_list() {
 
 	}
+	
+	public String[] getCoffeeMenu() {
+		String menuList[]=new String[CoffeeList.size()];
+		int i=0;
+		for (Map.Entry<String, Product> entry:CoffeeList.entrySet()) {
+			menuList[i]=entry.getKey();
+			i++;
+
+		}
+		return menuList;
+	}
+	public String[] getIceDrinkMenu() {
+		String menuList[]=new String[IceDrinkList.size()];
+		int i=0;
+		for (Map.Entry<String, Product> entry:IceDrinkList.entrySet()) {
+			menuList[i]=entry.getKey();
+			i++;
+
+		}
+		return menuList;
+	}
+	
+	public String[] getDisertMenu() {
+		String menuList[]=new String[DisertList.size()];
+		int i=0;
+		for (Map.Entry<String, Product> entry:DisertList.entrySet()) {
+			menuList[i]=entry.getKey();
+			i++;
+
+		}
+		return menuList;
+	}
+	
 	public void showCoffeeList() {
 		System.out.println(CoffeeList);
 	}

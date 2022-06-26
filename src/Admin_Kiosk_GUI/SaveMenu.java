@@ -1,4 +1,4 @@
-package GUI;
+package Admin_Kiosk_GUI;
 
 import javax.swing.JPanel;
 

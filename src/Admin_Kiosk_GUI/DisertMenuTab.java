@@ -1,4 +1,4 @@
-package GUI;
+package Admin_Kiosk_GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -16,21 +16,21 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 
+import Function.Product_menu_list_controller_ver_GUI;
 import variable.Product;
-import variable.Product_menu_list;
 
-public class ShowMenuTab extends JPanel implements ActionListener{
+public class DisertMenuTab extends JPanel implements ActionListener{
 	JTable table;
 	JPanel menu_panel,content,rightpanel;
 	TextField name_field,price_field;
 	JButton addbtn,rmbtn;
 	JScrollPane scrolPane;
-	public ShowMenuTab() {
+	public DisertMenuTab() {
 		setLayout(new BorderLayout());
 		
 		
 		String header[]= {"메뉴","가격"};		
-		menu_panel=new showMenu(header, Admin_Kiosk_App.menuList.getCoffeemenuToStringMap());
+		menu_panel=new showMenu(header, Admin_Kiosk_App.menuList.getDisertmenuToStringMap());
 		
 		add(menu_panel,BorderLayout.WEST);
 		
@@ -68,7 +68,7 @@ public class ShowMenuTab extends JPanel implements ActionListener{
 	private void update_table() {
 		remove(menu_panel);
 		String header[]= {"메뉴","가격"};		
-		menu_panel=new showMenu(header, Admin_Kiosk_App.menuList.getCoffeemenuToStringMap());
+		menu_panel=new showMenu(header, Admin_Kiosk_App.menuList.getDisertmenuToStringMap());
 
 		add(menu_panel,BorderLayout.WEST);
 
@@ -78,11 +78,14 @@ public class ShowMenuTab extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==addbtn) {
-			Admin_Kiosk_App.menuList.CoffeeList.put(name_field.getText(), new Product(name_field.getText(),Integer.parseInt(price_field.getText())));
+			Admin_Kiosk_App.menuList.DisertList.put(name_field.getText(), new Product(name_field.getText(),Integer.parseInt(price_field.getText())));
 			update_table();			
+			Product_menu_list_controller_ver_GUI.save("menu.obj");
+
 		}else if (e.getSource()==rmbtn) {
-			Admin_Kiosk_App.menuList.CoffeeList.remove(name_field.getText());
+			Admin_Kiosk_App.menuList.DisertList.remove(name_field.getText());
 			update_table();			
+			Product_menu_list_controller_ver_GUI.save("menu.obj");
 
 		}
 		

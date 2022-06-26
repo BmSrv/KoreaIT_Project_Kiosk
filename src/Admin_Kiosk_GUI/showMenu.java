@@ -1,4 +1,4 @@
-package GUI;
+package Admin_Kiosk_GUI;
 
 import java.awt.Dimension;
 import java.awt.ScrollPane;

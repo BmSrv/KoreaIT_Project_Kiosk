@@ -1,4 +1,4 @@
-package GUI;
+package Admin_Kiosk_GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
